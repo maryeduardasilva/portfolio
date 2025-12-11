@@ -1,0 +1,5 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*seria a box de uma div, border-box inclui padding e border na largura e altura totais, é o calculado no devtools da pagina (a caixa)*/
+}
