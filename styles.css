@@ -3,3 +3,16 @@
     padding: 0;
     box-sizing: border-box; /*seria a box de uma div, border-box inclui padding e border na largura e altura totais, é o calculado no devtools da pagina (a caixa)*/
 }
+
+:root {
+    --primary-color: lightpink;
+    --secondary-color: lightblue;
+    --font-color: #333;
+    --background-color: #f9f9f9;
+}
+
+body {
+
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
