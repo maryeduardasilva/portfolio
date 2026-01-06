@@ -68,7 +68,6 @@ nav ul li a:hover {
     flex-wrap: wrap; /* Para funcionar no celular depois */
 }
 
-/* Estilos do Texto (Esquerda) */
 .hero-text {
     display: flex;
     flex-direction: column;
@@ -84,7 +83,7 @@ nav ul li a:hover {
 }
 
 h1 {
-    font-size: 4.5rem; /* Tamanho grande como na foto */
+    font-size: 4.5rem;
     line-height: 1.1;
     font-weight: 700;
     margin-bottom: 20px;
@@ -103,27 +102,6 @@ h1 {
     max-width: 450px;
 }
 
-/* Botões */
-.buttons {
-    display: flex;
-    gap: 15px;
-}
-
-button {
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: var(--font-family);
-    transition: transform 0.2s;
-}
-
-button:hover {
-    transform: translateY(-2px);
-}
-
-/* Estilos da Imagem (Direita) */
 .hero-image-container {
     flex: 1;
     display: flex;
@@ -134,12 +112,10 @@ button:hover {
 .profile-pic {
     width: 400px;
     height: 400px;
-    border-radius: 50%; /* Deixa redonda */
+    border-radius: 50%;
     object-fit: cover; /* Garante que a foto não fique esticada */
-    
-    /* O efeito do anel roxo fino em volta */
-    box-shadow: 0 0 0 15px rgba(255, 255, 255, 1), /* Espaço branco */
-                0 0 0 16px var(--primary-color); /* Linha fina roxa */
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 1),
+                0 0 0 16px var(--secondary-color);
 }
 
 /* --- Responsividade (Para celular) --- */
@@ -164,12 +140,8 @@ button:hover {
     h1 {
         font-size: 3rem;
     }
-
-    .buttons {
-        justify-content: center;
-    }
     
     nav {
-        display: none; /* Em um projeto real, aqui você faria um menu hambúrguer */
+        display: none; /* Fazer um menu sanduiche */
     }
 }
