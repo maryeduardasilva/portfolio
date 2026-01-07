@@ -5,8 +5,8 @@
 }
 
 :root {
-    --primary-color: lightpink;
-    --secondary-color: rgb(160, 16, 88);
+    --primary-color: #ffb6c1;
+    --secondary-color: #a01058;
     --font-color: #333;
     --background-color: #f9f9f9;
     --gray-text: #555;        /* Texto de descrição */
@@ -32,8 +32,7 @@ header {
 .logo {
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--primary-color);
-    color: #d40a98;
+    color: var(--secondary-color);
 }
 
 .logo .dot {
@@ -116,6 +115,73 @@ h1 {
     object-fit: cover; /* Garante que a foto não fique esticada */
     box-shadow: 0 0 0 34px var(--primary-color),
                 0 0 0 35px var(--secondary-color);
+}
+
+/* --- Seção de Experiência --- */
+.experience-section {
+    padding: 60px 8%; /* Mesmo alinhamento lateral do header */
+    background-color: var(--primary-color); /* Mantendo a cor de fundo rosa claro */
+    color: var(--font-color);
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--font-color);
+}
+
+.section-title .dot {
+    color: var(--secondary-color); /* O ponto colorido igual na imagem */
+}
+
+/* O Grid que segura as 3 colunas */
+.experience-grid {
+    display: flex;
+    justify-content: space-between; /* Espalha as colunas */
+    width: 100%;
+}
+
+/* Cada coluna individual */
+.exp-item {
+    flex: 1; /* Faz as 3 ocuparem o mesmo tamanho */
+    padding: 0 30px; /* Espaço interno para o texto não colar na linha */
+    
+    /* A LINHA FINA ROSA ESCURO AQUI: */
+    border-right: 1px solid var(--secondary-color); 
+}
+
+/* Tira a borda do último item (da direita) e o padding */
+.exp-item:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+/* Tira o padding da esquerda do primeiro item */
+.exp-item:first-child {
+    padding-left: 0;
+}
+
+/* Estilização dos textos de dentro */
+.exp-item h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--secondary-color); /* Destaque no cargo/empresa */
+}
+
+.exp-item .date {
+    display: block; /* Faz a data ficar em linha própria */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555; /* Um cinza um pouco mais escuro para leitura */
+    margin-bottom: 15px;
+}
+
+.exp-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--font-color);
 }
 
 /* --- Responsividade (Para celular) --- */
