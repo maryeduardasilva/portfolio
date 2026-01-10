@@ -4,6 +4,10 @@
     box-sizing: border-box; /*seria a box de uma div, border-box inclui padding e border na largura e altura totais, é o calculado no devtools da pagina (a caixa)*/
 }
 
+html {
+    scroll-behavior: smooth; /* Faz a rolagem deslizar suavemente */
+}
+
 :root {
     --primary-color: #ffb6c1;
     --secondary-color: #a01058;
@@ -23,10 +27,10 @@ body {
 /* --- Header --- */
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 8%; /* Espaçamento interno */
     height: 80px;
+    position: relative;
 }
 
 .logo {
@@ -39,10 +43,16 @@ header {
     color: var(--primary-color);
 }
 
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px; /* Espaço entre os links */
+    gap: 40px; /* Espaço entre os links */
 }
 
 nav ul li a {
@@ -54,7 +64,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* --- O Botão "Selecionado"--- */
+nav ul li a.active {
+    color: var(--secondary-color); /* Rosa escuro/Roxo */
+    /* border-bottom: 2px solid var(--secondary-color); */
 }
 
 /* --- Hero Section (A parte principal) --- */
@@ -182,6 +198,140 @@ h1 {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--font-color);
+}
+
+/* --- Seção de Skills --- */
+.skills-section {
+    padding: 0 8% 80px 8%; /* Espaço nas laterais e embaixo */
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: space-between; /* Espalha as 3 colunas */
+    width: 100%;
+    flex-wrap: wrap; /* Garante que não quebre em telas menores */
+}
+
+.skill-category {
+    flex: 1; /* Divide o espaço igualmente */
+    min-width: 250px; /* Tamanho mínimo para não ficar espremido */
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--font-color); /* Título em preto/cinza escuro */
+}
+
+.skill-category ul {
+    list-style: none; /* Remove as bolinhas da lista */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre cada item da lista */
+}
+
+.skill-category ul li {
+    font-size: 1.1rem;
+    color: var(--gray-text); /* Cinza suave para os itens */
+    font-weight: 400;
+}
+
+/* --- Seção Sobre Mim --- */
+.about-section {
+    padding: 0 8% 20px 8%;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.about-content {
+    width: 100%;      
+    max-width: 100%;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Espaçamento entre linhas maior para elegância */
+    margin-bottom: 25px; /* Espaço entre os parágrafos */
+    color: var(--font-color);
+}
+
+/* Estilo das palavras destacadas no meio do texto */
+.highlight-text {
+    color: var(--secondary-color); /* A cor rosa escuro/roxo */
+    font-weight: 700; /* Negrito */
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    padding: 10px 8% 40px; /* Margens iguais ao resto do site */
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    display: flex;
+    justify-content: space-between; /* Joga um pra esquerda, um pra direita */
+    align-items: flex-end;
+}
+
+footer .section-title {
+    margin-bottom: 10px; 
+}
+
+/* Lado Esquerdo (Email) */
+.contact-left p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--font-color);
+}
+
+.email-link {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--font-color);
+    transition: color 0.3s;
+}
+
+.email-link i {
+    font-size: 1.3rem;
+    color: var(--secondary-color); /* Ícone rosa escuro */
+}
+
+.email-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Lado Direito (Redes Sociais e Copyright) */
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; /* Espaço entre ícones e o copyright */
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espaço entre o LinkedIn e o GitHub */
+}
+
+.social-icons a {
+    font-size: 2.5rem; 
+    color: var(--font-color);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px); 
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--gray-text);
 }
 
 /* --- Responsividade (Para celular) --- */
