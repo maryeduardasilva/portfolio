@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
     <title>Portfolio | Maria Eduarda</title>
 </head>
+
 <body>
     <header>
         <div class="logo">Mary</div>
         <nav>
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#experience">Experiência</a></li>
+                <li><a href="#projects">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="hero-section" id="home">
-        
+
         <div class="hero-text">
             <p class="greeting">Oi, sou a Maria</p>
 
-        <h1>
-            <span class="highlight">Front</span>end<br>
-            Developer
-        </h1>
-            
+            <h1>
+                <span class="highlight">Front</span>end<br>
+                Developer
+            </h1>
+
             <p class="description">
                 Sou uma desenvolvedora front-end apaixonada por soluções criativas e funcionais.<br>
                 Adoro transformar ideias em realidade através do código e design intuitivo.
@@ -46,27 +50,72 @@
 
     <section class="experience-section" id="experience">
         <h2 class="section-title">Experiência<span class="dot">.</span></h2>
+
+        <div class="experience-container">
+            <div class="experience-tabs">
+                <button class="tab-button active" onclick="openExperience(event, 'exp1')">Enactus Unicamp
+                    (Diretora)</button>
+                <button class="tab-button" onclick="openExperience(event, 'exp2')">Enactus Unicamp (Gerente)</button>
+                <button class="tab-button" onclick="openExperience(event, 'exp3')">Boa Vista Serviços | Equifax</button>
+            </div>
+
+            <div class="experience-content">
+                <div id="exp1" class="exp-pane active">
+                    <h3>Diretora de área - Enactus Unicamp Limeira</h3>
+                    <span class="date">Ago 2025 - Presente</span>
+                    <p>Liderança estratégica com ênfase em gestão de equipes e processos. Atuação em projetos de impacto
+                        social focados em resultados, unindo tecnologia, gestão e experiência do usuário em ambientes
+                        colaborativos.</p>
+                </div>
+
+                <div id="exp2" class="exp-pane">
+                    <h3>Gerente de Projeto - Enactus Unicamp Limeira</h3>
+                    <span class="date">Set 2024 - Ago 2025</span>
+                    <p>Gestão de projeto social com foco no planejamento, execução e entrega de valor. Atuação próxima à
+                        comunidade e stakeholders para garantir resultados efetivos e alinhados.</p>
+                </div>
+
+                <div id="exp3" class="exp-pane">
+                    <h3>Estagiária de Processos - Boa Vista Serviços | Equifax</h3>
+                    <span class="date">Fev 2022 - Fev 2024</span>
+                    <p>Melhoria de processos e automação de fluxos em ambientes de nuvem, utilizando Oracle BPM,
+                        Kanbanize, Miro e Salesforce. Colaboração em times multidisciplinares com metodologias ágeis,
+                        focando na organização, documentação técnica e aprimoramento da experiência do usuário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <h2 class="section-title">Projetos<span class="dot">.</span></h2>
         
-        <div class="experience-grid">
+        <div class="projects-grid">
+            <div class="projects-left">
+                <!-- Espaço para futuros projetos menores -->
+                <div class="project-card small empty">
+                    <div class="card-content">
+                        <h3>Em breve...</h3>
+                        <p>Novo projeto em desenvolvimento.</p>
+                    </div>
+                </div>
+                <div class="project-card small empty">
+                    <div class="card-content">
+                        <h3>Em breve...</h3>
+                        <p>Novo projeto em desenvolvimento.</p>
+                    </div>
+                </div>
+            </div>
             
-            <div class="exp-item">
-                <h3>Diretora de área - Enactus Unicamp Limeira</h3>
-                <span class="date">Ago 2025 - Presente</span>
-                <p>Liderança estratégica com ênfase em gestão de equipes e processos. Atuação em projetos de impacto social focados em resultados, unindo tecnologia, gestão e experiência do usuário em ambientes colaborativos.</p>
+            <div class="projects-right">
+                <div class="project-card large">
+                    <img src="figuras/Imagem_Grafo.png" alt="Curricular Viewer Grafo">
+                    <div class="card-content">
+                        <h3>Curricular Viewer (TCC)</h3>
+                        <p>Ferramenta visual para análise de múltiplos históricos escolares utilizando grafos acíclicos em camadas.</p>
+                        <a href="tcc-project.html" class="btn-detalhes">Ver detalhes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-
-            <div class="exp-item">
-                <h3>Gerente de Projeto - Enactus Unicamp Limeira</h3>
-                <span class="date">Set 2024 - Ago 2025</span>
-                <p>Gestão de projeto social com foco no planejamento, execução e entrega de valor. Atuação próxima à comunidade e stakeholders para garantir resultados efetivos e alinhados.</p>
-            </div>
-
-            <div class="exp-item">
-                <h3>Estagiária de Processos - Boa Vista Serviços | Equifax</h3>
-                <span class="date">Fev 2022 - Fev 2024</span>
-                <p>Melhoria de processos e automação de fluxos em ambientes de nuvem, utilizando Oracle BPM, Kanbanize, Miro e Salesforce. Colaboração em times multidisciplinares com metodologias ágeis, focando na organização, documentação técnica e aprimoramento da experiência do usuário.</p>
-            </div>
-
         </div>
     </section>
 
@@ -74,7 +123,7 @@
         <h2 class="section-title">Skills<span class="dot">.</span></h2>
 
         <div class="skills-grid">
-            
+
             <div class="skill-category">
                 <h3>Web Design</h3>
                 <ul>
@@ -111,51 +160,67 @@
 
         <div class="about-content">
             <p>
-                Minha paixão por tecnologia e design começou na infância e me levou a cursar <span class="highlight-text">Análise e Desenvolvimento de Sistemas na UNICAMP</span> em 2021.
+                Minha paixão por tecnologia e design começou na infância e me levou a cursar <span
+                    class="highlight-text">Análise e Desenvolvimento de Sistemas na UNICAMP</span> em 2021.
             </p>
 
             <p>
-                Iniciei minha trajetória profissional na <span class="highlight-text">Boa Vista</span>, onde tive meu primeiro contato com o mundo corporativo. Depois, trabalhei na <span class="highlight-text">Enactus</span>, onde pude unir tecnologia com empreendedorismo e <span class="highlight-text">impacto social</span>, participando de projetos voluntários em comunidades vulneráveis e na gestão de iniciativas sociais.
+                Iniciei minha trajetória profissional na <span class="highlight-text">Boa Vista</span>, onde tive meu
+                primeiro contato com o mundo corporativo. Depois, trabalhei na <span
+                    class="highlight-text">Enactus</span>, onde pude unir tecnologia com empreendedorismo e <span
+                    class="highlight-text">impacto social</span>, participando de projetos voluntários em comunidades
+                vulneráveis e na gestão de iniciativas sociais.
             </p>
 
             <p>
-                Ao longo do caminho, também me aprofundei em <span class="highlight-text">UX/UI design</span> e gestão de produtos, o que me deu uma visão mais completa do desenvolvimento.
+                Ao longo do caminho, também me aprofundei em <span class="highlight-text">UX/UI design</span> e gestão
+                de produtos, o que me deu uma visão mais completa do desenvolvimento.
             </p>
 
             <p>
-                Quando não estou codando ou estudando, você provavelmente vai me encontrar explorando novos mundos em <span class="highlight-text">video-games</span>, curtindo minhas playlists favoritas ou maratonando séries e filmes. Esse equilíbrio é essencial para manter minha criatividade sempre em alta.
+                Quando não estou codando ou estudando, você provavelmente vai me encontrar explorando novos mundos em
+                <span class="highlight-text">video-games</span>, curtindo minhas playlists favoritas ou maratonando
+                séries e filmes. Esse equilíbrio é essencial para manter minha criatividade sempre em alta.
             </p>
 
             <p>
-                Me apaixonei por <span class="highlight-text">front-end</span> porque é onde posso transformar a experiência do usuário em algo prático, acessível e inclusivo. Acredito que a tecnologia deve funcionar para todos, e é isso que me motiva todos os dias. 🩷
+                Me apaixonei por <span class="highlight-text">front-end</span> porque é onde posso transformar a
+                experiência do usuário em algo prático, acessível e inclusivo. Acredito que a tecnologia deve funcionar
+                para todos, e é isso que me motiva todos os dias. 🩷
             </p>
 
         </div>
     </section>
     <footer id="contact">
-        <div class="contact-left">
-            <h2 class="section-title">Contato<span class="dot">.</span></h2>
-            <p>Entre em contato comigo</p>
-            
-            <a href="mailto:mariduoliver@gmail" class="email-link">
-                <i class="fa-solid fa-envelope"></i> mariduoliver@gmail
-            </a>
-        </div>
-
-        <div class="contact-right">
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/mari-eduarda/" target="_blank" rel="noopener noreferrer" aria-label="Visite meu LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-                </a>
-    
-                <a href="https://github.com/maryeduardasilva" target="_blank" rel="noopener noreferrer" aria-label="Visite meu GitHub">
-                <i class="fa-brands fa-github"></i>
+        <h2 class="section-title">Contato<span class="dot">.</span></h2>
+        
+        <div class="footer-content">
+            <div class="contact-left">
+                <p>Entre em contato comigo</p>
+                
+                <a href="mailto:mariduoliver@gmail" class="email-link">
+                    <i class="fa-solid fa-envelope"></i> mariduoliver@gmail
                 </a>
             </div>
-            
-            <p class="copyright">©2026 All Rights Reserved.</p>
+
+            <div class="contact-right">
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/mari-eduarda/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visite meu LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://github.com/maryeduardasilva" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visite meu GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+
+                <p class="copyright">©2026 All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
-    
+    <script src="script.js"></script>
 </body>
+
 </html>

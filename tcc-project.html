@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <title>Curricular Viewer | TCC</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Mary</div>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#experience">Experiência</a></li>
+                <li><a href="index.html#projects">Projetos</a></li>
+                <li><a href="index.html#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-details">
+        <div class="back-link">
+            <a href="index.html#projects"><i class="fa-solid fa-arrow-left"></i> Voltar para Projetos</a>
+        </div>
+        
+        <h1 class="project-title">Curricular Viewer</h1>
+        <h2 class="project-subtitle">Grafos acíclicos direcionados em camadas para visualização de múltiplos históricos escolares</h2>
+
+        <div class="project-hero-image">
+            <img src="figuras/Imagem_Grafo.png" alt="Visualização do Grafo do Curricular Viewer">
+        </div>
+
+        <div class="project-content">
+            <h3>Sobre o Projeto (TCC)</h3>
+            <p>
+                Acompanhar o desempenho de alunos universitários em diversas disciplinas exige um elevado esforço cognitivo das coordenações de curso, uma vez que os dados acadêmicos costumam ser disponibilizados apenas em formatos alfanuméricos (tabelas densas). Para solucionar esse problema, desenvolvi o <strong>Curricular Viewer</strong> no meu TCC.
+            </p>
+            <p>
+                Trata-se de uma ferramenta de Visualização de Informação focada no uso de <strong>Grafos Acíclicos Direcionados em Camadas</strong>. A abordagem considera as relações de pré-requisito entre as disciplinas e a progressão temporal dos semestres, permitindo a análise visual de diversos históricos acadêmicos ao mesmo tempo!
+            </p>
+
+            <h3>Como o Código Funciona</h3>
+            <p>
+                O sistema foi desenvolvido de forma modular. Ele processa <strong>dados curriculares (estruturados em XML)</strong> e <strong>registros acadêmicos (em formato CSV)</strong> de notas sintéticas geradas pelo sistema GradeGen.
+            </p>
+            <ul>
+                <li><strong>Model (Lógica de Dados):</strong> Desenvolvido em Python (<code>model.py</code>), é o motor que lê e converte os arquivos XML (árvore curricular com IDs, créditos e pré-requisitos) e CSV (notas e histórico dos alunos). Aqui, estruturam-se as classes <code>Disciplina</code> e <code>Catálogo</code>.</li>
+                <li><strong>View (Desenho Técnico):</strong> No módulo <code>viz.py</code>, as bibliotecas matemáticas e visuais <code>matplotlib</code> e <code>networkx</code> entram em ação. Elas cuidam do cálculo para dispor os nós (disciplinas) e as arestas (setas direcionais dos pré-requisitos) sem sobreposições agressivas, e aplicam mapas de calor (heatmaps) para identificar taxas de reprovação ou sucesso.</li>
+                <li><strong>Controller/GUI (Interface Interativa):</strong> Feita com a biblioteca <code>tkinter</code> (<code>gui.py</code>), a interface permite ao usuário selecionar os arquivos de entrada com facilidade, realizar interações e visualizar a atualização dos dados da coordenação no grafo em tempo real.</li>
+            </ul>
+            <p>
+                Essa arquitetura facilita a identificação de padrões de desempenho, gargalos na grade curricular e disciplinas críticas, auxiliando imensamente coordenadores e professores na tomada de decisão.
+            </p>
+
+            <div class="project-actions">
+                <a href="https://github.com/maryeduardasilva/Curricular-Viewer" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <i class="fa-brands fa-github"></i> Ver Repositório no GitHub
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <h2 class="section-title">Contato<span class="dot">.</span></h2>
+        
+        <div class="footer-content">
+            <div class="contact-left">
+                <p>Entre em contato comigo</p>
+                
+                <a href="mailto:mariduoliver@gmail" class="email-link">
+                    <i class="fa-solid fa-envelope"></i> mariduoliver@gmail
+                </a>
+            </div>
+
+            <div class="contact-right">
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/mari-eduarda/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visite meu LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://github.com/maryeduardasilva" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visite meu GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+
+                <p class="copyright">©2026 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

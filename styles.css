@@ -1,11 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*seria a box de uma div, border-box inclui padding e border na largura e altura totais, é o calculado no devtools da pagina (a caixa)*/
+    box-sizing: border-box;
+    /*seria a box de uma div, border-box inclui padding e border na largura e altura totais, é o calculado no devtools da pagina (a caixa)*/
 }
 
 html {
-    scroll-behavior: smooth; /* Faz a rolagem deslizar suavemente */
+    scroll-behavior: smooth;
+    /* Faz a rolagem deslizar suavemente */
 }
 
 :root {
@@ -13,22 +15,31 @@ html {
     --secondary-color: #a01058;
     --font-color: #333;
     --background-color: #f9f9f9;
-    --gray-text: #555;        /* Texto de descrição */
-    --font-family: 'Poppins', sans-serif;
+    --gray-text: #555;
+    /* Texto de descrição */
+    --font-family-body: 'Space Mono', monospace;
+    --font-family-heading: 'Chakra Petch', sans-serif;
 }
 
 body {
     background-color: var(--primary-color);
     color: var(--font-color);
-    font-family: var(--font-family);
-    overflow-x: hidden; /* Evita rolagem lateral indesejada */
+    font-family: var(--font-family-body);
+    overflow-x: hidden;
+    /* Evita rolagem lateral indesejada */
+}
+
+/* Estilo para Títulos e UI */
+h1, h2, h3, .logo, nav ul li a, .tab-button {
+    font-family: var(--font-family-heading);
 }
 
 /* --- Header --- */
 header {
     display: flex;
     align-items: center;
-    padding: 20px 8%; /* Espaçamento interno */
+    padding: 20px 8%;
+    /* Espaçamento interno */
     height: 80px;
     position: relative;
 }
@@ -52,7 +63,8 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 40px; /* Espaço entre os links */
+    gap: 40px;
+    /* Espaço entre os links */
 }
 
 nav ul li a {
@@ -69,7 +81,8 @@ nav ul li a:hover {
 
 /* --- O Botão "Selecionado"--- */
 nav ul li a.active {
-    color: var(--secondary-color); /* Rosa escuro/Roxo */
+    color: var(--secondary-color);
+    /* Rosa escuro/Roxo */
     /* border-bottom: 2px solid var(--secondary-color); */
 }
 
@@ -79,8 +92,10 @@ nav ul li a.active {
     align-items: center;
     justify-content: space-between;
     padding: 0 8%;
-    min-height: calc(100vh - 80px); /* Altura total menos o header */
-    flex-wrap: wrap; /* Para funcionar no celular depois */
+    min-height: calc(100vh - 80px);
+    /* Altura total menos o header */
+    flex-wrap: wrap;
+    /* Para funcionar no celular depois */
 }
 
 .hero-text {
@@ -106,7 +121,7 @@ h1 {
 }
 
 .highlight {
-    color: var(--secondary-color); 
+    color: var(--secondary-color);
 }
 
 .description {
@@ -120,7 +135,8 @@ h1 {
 .hero-image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* Alinha a imagem à direita */
+    justify-content: flex-end;
+    /* Alinha a imagem à direita */
     position: relative;
 }
 
@@ -128,15 +144,20 @@ h1 {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    object-fit: cover; /* Garante que a foto não fique esticada */
+    object-fit: cover;
+    /* Garante que a foto não fique esticada */
     box-shadow: 0 0 0 34px var(--primary-color),
-                0 0 0 35px var(--secondary-color);
+        0 0 0 35px var(--secondary-color),
+        0 15px 60px 20px rgba(160, 16, 88, 0.4);
+    /* Sombra rosa suave */
 }
 
 /* --- Seção de Experiência --- */
 .experience-section {
-    padding: 60px 8%; /* Mesmo alinhamento lateral do header */
-    background-color: var(--primary-color); /* Mantendo a cor de fundo rosa claro */
+    padding: 60px 8%;
+    /* Mesmo alinhamento lateral do header */
+    background-color: var(--primary-color);
+    /* Mantendo a cor de fundo rosa claro */
     color: var(--font-color);
 }
 
@@ -148,94 +169,140 @@ h1 {
 }
 
 .section-title .dot {
-    color: var(--secondary-color); /* O ponto colorido igual na imagem */
+    color: var(--secondary-color);
+    /* O ponto colorido igual na imagem */
 }
 
-/* O Grid que segura as 3 colunas */
-.experience-grid {
+/* Container de Abas e Conteúdo */
+.experience-container {
     display: flex;
-    justify-content: space-between; /* Espalha as colunas */
+    gap: 40px;
     width: 100%;
 }
 
-/* Cada coluna individual */
-.exp-item {
-    flex: 1; /* Faz as 3 ocuparem o mesmo tamanho */
-    padding: 0 30px; /* Espaço interno para o texto não colar na linha */
-    
-    /* A LINHA FINA ROSA ESCURO AQUI: */
-    border-right: 1px solid var(--secondary-color); 
+/* Abas na esquerda */
+.experience-tabs {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    border-left: 2px solid rgba(160, 16, 88, 0.2);
+    /* Linha sutil na esquerda baseada na secondary color */
 }
 
-/* Tira a borda do último item (da direita) e o padding */
-.exp-item:last-child {
-    border-right: none;
-    padding-right: 0;
+.tab-button {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    cursor: pointer;
+    font-family: var(--font-family-heading);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    margin-left: -2px;
+    /* Sobrepor a borda do container */
 }
 
-/* Tira o padding da esquerda do primeiro item */
-.exp-item:first-child {
-    padding-left: 0;
+.tab-button:hover {
+    color: var(--secondary-color);
+    background-color: rgba(160, 16, 88, 0.05);
 }
 
-/* Estilização dos textos de dentro */
-.exp-item h3 {
-    font-size: 1.3rem;
+.tab-button.active {
+    color: var(--secondary-color);
+    border-left-color: var(--secondary-color);
+    background-color: rgba(160, 16, 88, 0.05);
+}
+
+/* Conteúdo na direita */
+.experience-content {
+    flex: 1;
+    /* Usa CSS grid para empilhar as abas; assim o contêiner sempre terá a altura do maior item, evitando pulos na página */
+    display: grid;
+}
+
+.exp-pane {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.exp-pane.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.exp-pane h3 {
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 5px;
-    color: var(--secondary-color); /* Destaque no cargo/empresa */
+    color: var(--secondary-color);
 }
 
-.exp-item .date {
-    display: block; /* Faz a data ficar em linha própria */
-    font-size: 0.9rem;
+.exp-pane .date {
+    display: block;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: #555; /* Um cinza um pouco mais escuro para leitura */
-    margin-bottom: 15px;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.exp-item p {
-    font-size: 1rem;
+.exp-pane p {
+    font-size: 1.1rem;
     line-height: 1.6;
     color: var(--font-color);
 }
 
 /* --- Seção de Skills --- */
 .skills-section {
-    padding: 0 8% 80px 8%; /* Espaço nas laterais e embaixo */
+    padding: 0 8% 80px 8%;
+    /* Espaço nas laterais e embaixo */
     background-color: var(--primary-color);
     color: var(--font-color);
 }
 
 .skills-grid {
     display: flex;
-    justify-content: space-between; /* Espalha as 3 colunas */
+    justify-content: space-between;
+    /* Espalha as 3 colunas */
     width: 100%;
-    flex-wrap: wrap; /* Garante que não quebre em telas menores */
+    flex-wrap: wrap;
+    /* Garante que não quebre em telas menores */
 }
 
 .skill-category {
-    flex: 1; /* Divide o espaço igualmente */
-    min-width: 250px; /* Tamanho mínimo para não ficar espremido */
+    flex: 1;
+    /* Divide o espaço igualmente */
+    min-width: 250px;
+    /* Tamanho mínimo para não ficar espremido */
 }
 
 .skill-category h3 {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 25px;
-    color: var(--font-color); /* Título em preto/cinza escuro */
+    color: var(--font-color);
+    /* Título em preto/cinza escuro */
 }
 
 .skill-category ul {
-    list-style: none; /* Remove as bolinhas da lista */
+    list-style: none;
+    /* Remove as bolinhas da lista */
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaço entre cada item da lista */
+    gap: 15px;
+    /* Espaço entre cada item da lista */
 }
 
 .skill-category ul li {
     font-size: 1.1rem;
-    color: var(--gray-text); /* Cinza suave para os itens */
+    color: var(--gray-text);
+    /* Cinza suave para os itens */
     font-weight: 400;
 }
 
@@ -247,48 +314,67 @@ h1 {
 }
 
 .about-content {
-    width: 100%;      
+    width: 100%;
     max-width: 100%;
 }
 
 .about-content p {
     font-size: 1.1rem;
-    line-height: 1.8; /* Espaçamento entre linhas maior para elegância */
-    margin-bottom: 25px; /* Espaço entre os parágrafos */
+    line-height: 1.8;
+    /* Espaçamento entre linhas maior para elegância */
+    margin-bottom: 25px;
+    /* Espaço entre os parágrafos */
     color: var(--font-color);
 }
 
 /* Estilo das palavras destacadas no meio do texto */
 .highlight-text {
-    color: var(--secondary-color); /* A cor rosa escuro/roxo */
-    font-weight: 700; /* Negrito */
+    color: var(--secondary-color);
+    /* A cor rosa escuro/roxo */
+    font-weight: 700;
+    /* Negrito */
 }
 
 /* --- Rodapé (Footer) --- */
 footer {
-    padding: 10px 8% 40px; /* Margens iguais ao resto do site */
+    padding: 40px 8% 80px;
+    /* Mais espaço interno superior e no final da página */
     background-color: var(--primary-color);
     color: var(--font-color);
+}
+
+.footer-content {
     display: flex;
-    justify-content: space-between; /* Joga um pra esquerda, um pra direita */
-    align-items: flex-end;
+    justify-content: space-between;
+    /* Joga um pra esquerda, um pra direita */
+    align-items: flex-start;
+    /* Alinha o topo do p com o topo dos ícones */
 }
 
 footer .section-title {
-    margin-bottom: 10px; 
+    margin-bottom: 20px;
 }
 
 /* Lado Esquerdo (Email) */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+    /* Ajuste fino para alinhar visualmente o texto com o centro dos ícones, se necessário */
+}
+
 .contact-left p {
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     color: var(--font-color);
 }
 
 .email-link {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre o ícone e o texto */
+    gap: 10px;
+    /* Espaço entre o ícone e o texto */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -298,7 +384,8 @@ footer .section-title {
 
 .email-link i {
     font-size: 1.3rem;
-    color: var(--secondary-color); /* Ícone rosa escuro */
+    color: var(--secondary-color);
+    /* Ícone rosa escuro */
 }
 
 .email-link:hover {
@@ -310,23 +397,25 @@ footer .section-title {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px; /* Espaço entre ícones e o copyright */
+    gap: 40px;
+    /* Espaço maior entre ícones e o copyright para jogá-lo para baixo */
 }
 
 .social-icons {
     display: flex;
-    gap: 20px; /* Espaço entre o LinkedIn e o GitHub */
+    gap: 20px;
+    /* Espaço entre o LinkedIn e o GitHub */
 }
 
 .social-icons a {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     color: var(--font-color);
     transition: transform 0.3s, color 0.3s;
 }
 
 .social-icons a:hover {
     color: var(--secondary-color);
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }
 
 .copyright {
@@ -334,10 +423,218 @@ footer .section-title {
     color: var(--gray-text);
 }
 
+/* --- Projetos --- */
+.projects-section {
+    padding: 60px 8%;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.projects-grid {
+    display: flex;
+    gap: 30px;
+    min-height: 500px;
+}
+
+.projects-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.projects-right {
+    flex: 1.5;
+    display: flex;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(160, 16, 88, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(160, 16, 88, 0.2);
+}
+
+.project-card.small {
+    flex: 1;
+    justify-content: center;
+    padding: 30px;
+}
+
+.project-card.empty {
+    border: 2px dashed rgba(160, 16, 88, 0.3);
+    background-color: transparent;
+    box-shadow: none;
+    align-items: center;
+    text-align: center;
+}
+
+.project-card.empty h3 {
+    color: var(--gray-text);
+}
+
+.project-card.large {
+    flex: 1;
+}
+
+.project-card.large img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.project-card .card-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+}
+
+.btn-detalhes {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--font-family-heading);
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.btn-detalhes:hover {
+    background-color: #800d46;
+}
+
+/* --- Página de Detalhes do Projeto --- */
+.project-details {
+    padding: 40px 8% 80px;
+    background-color: var(--primary-color);
+    min-height: calc(100vh - 80px);
+}
+
+.back-link {
+    margin-bottom: 20px;
+}
+
+.back-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: opacity 0.3s;
+}
+
+.back-link a:hover {
+    opacity: 0.7;
+}
+
+.project-title {
+    font-size: 3.5rem;
+    color: var(--font-color);
+    margin-bottom: 10px;
+}
+
+.project-subtitle {
+    font-size: 1.5rem;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+    font-family: var(--font-family-body);
+    font-weight: 400;
+}
+
+.project-hero-image {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 50px rgba(160, 16, 88, 0.2);
+}
+
+.project-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.project-content p, .project-content ul {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--font-color);
+    margin-bottom: 20px;
+}
+
+.project-content ul {
+    padding-left: 20px;
+}
+
+.project-content li {
+    margin-bottom: 10px;
+}
+
+.project-actions {
+    margin-top: 50px;
+}
+
+.btn-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--font-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: var(--font-family-heading);
+    transition: background-color 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: #000;
+}
+
 /* --- Responsividade (Para celular) --- */
 @media (max-width: 768px) {
     .hero-section {
-        flex-direction: column-reverse; /* Imagem em cima, texto embaixo no celular */
+        flex-direction: column-reverse;
+        /* Imagem em cima, texto embaixo no celular */
         justify-content: center;
         text-align: center;
         padding-top: 40px;
@@ -356,8 +653,42 @@ footer .section-title {
     h1 {
         font-size: 3rem;
     }
-    
+
     nav {
-        display: none; /* Fazer um menu sanduiche */
+        display: none;
+        /* Fazer um menu sanduiche */
+    }
+
+    .experience-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .experience-tabs {
+        border-left: none;
+        border-bottom: 2px solid rgba(160, 16, 88, 0.2);
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        min-width: auto;
+    }
+
+    .tab-button {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        margin-left: 0;
+        margin-bottom: -12px;
+        /* Sobrepor a borda inferior */
+        white-space: nowrap;
+        padding: 10px 15px;
+    }
+
+    .tab-button.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--secondary-color);
+    }
+
+    .projects-grid {
+        flex-direction: column;
     }
 }
