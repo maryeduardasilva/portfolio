@@ -22,17 +22,6 @@ O site possui um design moderno de página única (*One Page*), facilitando a na
 - **Sobre Mim:** Um texto pessoal abordando minha trajetória na UNICAMP, vivências corporativas (Boa Vista, Enactus), contato com impacto social e também meus hobbies (videogames e filmes).
 - **Contato:** Acesso rápido ao meu e-mail, LinkedIn e GitHub.
 
-## Como Visualizar o Projeto
-
-Como o projeto é totalmente estático e não requer compiladores ou instaladores de pacotes (como Node.js ou npm), visualizar o site localmente é muito simples:
-
-1. Faça o clone deste repositório na sua máquina:
-   ```bash
-   git clone https://github.com/maryeduardasilva/portfolio.git
-   ```
-2. Abra a pasta do projeto que acabou de baixar.
-3. Dê um duplo clique no arquivo `index.html`. O site será aberto perfeitamente em seu navegador padrão.
-
 ## Contatos e Redes
 
 Sinta-se à vontade para conferir meu trabalho e entrar em contato:
