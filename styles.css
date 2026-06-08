@@ -95,6 +95,8 @@ nav ul li a.active {
     min-height: calc(100vh - 80px);
     /* Altura total menos o header */
     flex-wrap: wrap;
+    gap: 40px;
+    /* Espaço entre texto e imagem */
     /* Para funcionar no celular depois */
 }
 
@@ -103,7 +105,8 @@ nav ul li a.active {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-width: 50%;
+    max-width: 48%;
+    margin-right: 20px;
 }
 
 .greeting {
@@ -170,15 +173,17 @@ h1 {
 /* Container de Abas e Conteúdo */
 .experience-container {
     display: flex;
-    gap: 40px;
+    gap: 24px;
     width: 100%;
+    align-items: flex-start;
 }
 
 /* Abas na esquerda */
 .experience-tabs {
     display: flex;
     flex-direction: column;
-    min-width: 250px;
+    min-width: 0;
+    width: max-content;
     border-left: 2px solid rgba(160, 16, 88, 0.2);
     /* Linha sutil na esquerda baseada na secondary color */
 }
@@ -197,6 +202,7 @@ h1 {
     border-left: 3px solid transparent;
     margin-left: -2px;
     /* Sobrepor a borda do container */
+    white-space: normal;
 }
 
 .tab-button:hover {
@@ -213,6 +219,7 @@ h1 {
 /* Conteúdo na direita */
 .experience-content {
     flex: 1;
+    min-width: 0;
     /* Usa CSS grid para empilhar as abas; assim o contêiner sempre terá a altura do maior item, evitando pulos na página */
     display: grid;
 }
@@ -929,25 +936,50 @@ p code, li code {
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
-        padding-top: 40px;
+        padding-top: 30px;
     }
 
     .hero-image-container {
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
     }
 
     .profile-pic {
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        height: 180px;
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 2.2rem;
+        line-height: 1.15;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .project-title {
+        font-size: 2rem;
     }
 
     nav {
         display: none;
+    }
+
+    /* Justificar textos no mobile para melhor leitura (exceto o bloco principal de hero) */
+    .description, .about-content p, .project-section p, .exp-pane p, .projects-left p, .references-list li, .card p, .concept-card p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    /* Alinhar o bloco principal (nome/descrição) à esquerda abaixo da foto */
+    .hero-text {
+        text-align: left;
+        align-items: flex-start;
+        max-width: 100%;
+        margin-right: 0;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     .experience-container {
@@ -985,7 +1017,7 @@ p code, li code {
     /* Project Page Responsive */
     .project-hero, .dark-glow-section, .split-section, .two-cols {
         flex-direction: column;
-        gap: 40px;
+        gap: 28px;
     }
 
     .project-hero-image {
@@ -996,11 +1028,99 @@ p code, li code {
         grid-template-columns: 1fr;
     }
 
+    .project-section {
+        padding: 40px 5%;
+    }
+
+    /* Rodapé: empilhar e centralizar ícones e copyright abaixo do texto */
+    footer .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        text-align: center;
+    }
+
+    footer .contact-left, footer .contact-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    footer .contact-right .social-icons {
+        order: 2;
+        margin-top: 6px;
+    }
+
+    footer .contact-right .copyright {
+        order: 3;
+        margin-top: 4px;
+    }
+}
+
+/* --- Responsividade (Tablet: entre celular e desktop) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-section {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 6%;
+        gap: 32px;
+    }
+
+    .hero-image-container {
+        justify-content: flex-end;
+        margin-bottom: 0;
+    }
+
+    .profile-pic {
+        width: 300px;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
     .project-title {
         font-size: 2.5rem;
     }
 
-    .project-section {
-        padding: 60px 5%;
+    /* Texto principal mais largo que no mobile, mas com margem para a imagem */
+    .hero-text {
+        max-width: 55%;
+        margin-right: 24px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* Justificar pequenos blocos de texto para melhor leitura em tablets */
+    .description, .about-content p, .project-section p, .exp-pane p, .projects-left p, .references-list li, .card p, .concept-card p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    .projects-grid {
+        gap: 24px;
+        min-height: 360px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Footer mantém layout em linha (desktop-like) no tablet, mas com menos gap */
+    footer .footer-content {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+        text-align: left;
+    }
+
+    footer .contact-left, footer .contact-right {
+        width: auto;
+        align-items: flex-start;
     }
 }
